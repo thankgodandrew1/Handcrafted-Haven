@@ -1,11 +1,10 @@
 import React from "react";
 import Footer from "./Footer";
-import Hero from "./Hero";
 
-export default function Layout() {
+export default function Layout({ children }) {
     return (
         <div className="main-layout">
-            <Hero/>
+            <main>{children}</main>
             <Footer />
         </div>
     )
