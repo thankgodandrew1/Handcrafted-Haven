@@ -1,6 +1,6 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import Footer from '@/components/Footer';
-import Layout from '@/components/Layout';
+import Footer from '../../components/Footer';
+import Layout from '../../components/Layout';
 
 export default function HomePage() {
     return (
