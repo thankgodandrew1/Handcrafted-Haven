@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Footer() {
     return (
       <footer className="py-6 px-6 bg-gray-900 bg-gradient-to-l from-background to-muted">
