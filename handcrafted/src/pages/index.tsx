@@ -1,10 +1,20 @@
-export default function Home() {
-  return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import Footer from '@/components/Footer';
+import Layout from '@/components/Layout';
+
+export default function HomePage() {
+    return (
+        <Layout />
+            
+    )
 }
+// export default function Home() {
+//   return (
+//     <h1 className="text-3xl font-bold underline text-primary">
+//       Hello world!
+//     </h1>
+//   )
+// }
 // import Head from 'next/head'
 // import Image from 'next/image'
 // import { Inter } from 'next/font/google'

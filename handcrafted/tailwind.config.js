@@ -18,7 +18,9 @@ module.exports = {
       success: '#8BC34A', // Light Green
       error: '#FF5252', // Red
       link: '#00BCD4', // Cyan
-      muted: '#9E9E9E', // Medium Gray
+      muted: '#9E9E9E', // Medium 
+      black: '#000000', // black 
+      white: '#ffffff',
     },
     fontFamily: {
       body: ['Roboto', 'Helvetica', 'Arial'],
