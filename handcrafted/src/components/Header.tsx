@@ -1,6 +1,6 @@
 export default function Header() {
     return (
-        <div className="header z-1 fixed w-full">
+        <div className="header z-10 fixed w-full">
             <nav className="md:flex p-5 md:justify-between w-auto">
                 <div className="flex justify-between items-center cursor-pointer">
                 <a href="/" className="cursor-pointer">
