@@ -57,8 +57,7 @@ export default function FeaturedArtisans() {
               height={90}
               src={artisan.image}
               alt={artisan.name}
-              className="rounded-sm mb-4 items-center"
-            />
+              className="rounded-sm mb-4 items-center"/>
             <h3 className="text-lg font-semibold font-heading mb-2">{artisan.name}</h3>
             <p className="text-text font-body">{artisan.description}</p>
             <button className="bg-muted hover:bg-link transition duration-30 text-white font-bold py-2 px-4 rounded mt-2 font-heading">
