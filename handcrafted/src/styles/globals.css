@@ -1,6 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header {
+  background-image: linear-gradient(to right, #686767af, white);
+  color: #000;
+}
+
+li {
+  padding: 5px 20px;
+  margin: 0;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+}
 /* :root {
   --max-width: 1100px;
   --border-radius: 12px;
