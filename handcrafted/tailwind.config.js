@@ -108,6 +108,9 @@ module.exports = {
       animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',
       },
+      zIndex: {
+        '100': '100',
+      },
     }
   },
 }
