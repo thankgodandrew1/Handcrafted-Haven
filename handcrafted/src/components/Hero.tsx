@@ -4,7 +4,7 @@ export default function Hero () {
             backgroundImage: `url("/images/background.svg")`, 
         }}>
             <div className="grid grid-cols-4 h-full p-8 mb-2 bg-gray-600 mt-4 ml-20" >
-                <div className="border-white bg-opacity-100 border-solid border-2 max-w-md mt-16 p-8 mb-64 rounded-2xl col-start-1 col-end-3 row-start-1 row-end-4">
+                <div className="border-white bg-opacity-100 border-solid bg-text opacity-70 border-2 max-w-md mt-16 p-8 mb-64 rounded-2xl col-start-1 col-end-3 row-start-1 row-end-4">
                     <h1 className="font-bold underline text-white">You are Welcome to Handcrafted Haven</h1>
                     <p className="text-white text-opacity-100 mt-4">Handcrafted Haven is an innovative web application that aims to 
                         provide a platform for artisans and crafters to showcase and sell
@@ -13,7 +13,7 @@ export default function Hero () {
                         and quality of handmade products. 
                     </p>
                 </div>
-                <div className="border-white bg-opacity-40 max-w-md border-solid border-2 rounded-2xl mt-64 mb-2 p-8 col-start-3 col-end-5 h-auto">
+                <div className="border-white bg-text opacity-70 max-w-md border-solid border-2 rounded-2xl mt-64 mb-2 p-8 col-start-3 col-end-5 h-auto">
                     <p className="text-white">Handcrafted Haven aims to revolutionize the way handcrafted items are discovered, 
                         appreciated, and acquired. By providing a digital platform for artisans to showcase 
                         their creativity and connect with a broader audience, the web application fosters a 
