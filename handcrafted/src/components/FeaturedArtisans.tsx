@@ -49,11 +49,11 @@ export default function FeaturedArtisans() {
   return (
     <section className="py-12 px-6 bg-gradient-to-r from-muted to-background m-4 rounded-lg">
       <h2 className="text-3xl font-semibold mb-4 font-heading">Featured Artisans</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {featuredArtisans.map((artisan) => (
-          <div key={artisan.id} className="transition-transform duration-300 transform-gpu hover:scale-105 bg-background rounded-lg shadow-lg p-4">
+          <div key={artisan.id} className="md:transition-transform md:duration-300 md:transform-gpu md:hover:scale-105 bg-background rounded-lg shadow-lg p-4">
  <Image
-              width={400}
+              width={2000}
               height={90}
               src={artisan.image}
               alt={artisan.name}
