@@ -1,10 +1,11 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import Footer from '@/components/Footer';
 import Layout from '@/components/Layout';
-
+import Hero from '@/components/Hero';
 export default function HomePage() {
     return (
-        <Layout />
+        <Layout>
+            <Hero />
+        </Layout>
             
     )
 }
