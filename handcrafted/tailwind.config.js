@@ -2,7 +2,8 @@
 module.exports = {
   content: [
     './src/**/*.{js,jsx,ts,tsx,mdx}',
-    './components/**/*.{js,jsx,ts,tsx,mdx}'
+    './components/**/*.{js,jsx,ts,tsx,mdx}',
+    'tailwind.config.{js,cjs,mjs,ts}'
   ],
   theme: {
     screens: {
@@ -83,6 +84,28 @@ module.exports = {
         'full': '9999px',
         '4xl': '2rem',
 
+      },
+      transitionProperty: {
+        'height': 'height',
+        'spacing': 'margin, padding',
+      },
+      transitionDuration: {
+        '2000': '2000ms',
+      },
+      transitionDelay: {
+        '2000': '2000ms',
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        }
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite',
       },
     }
   },
