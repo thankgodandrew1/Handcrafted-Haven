@@ -7,7 +7,7 @@ interface LayoutProps {
     children: ReactNode;
 }
 
-export const siteTitle = 'HandCrafted Haven Website';
+export const siteTitle = 'Home | HandCrafted Have';
 
 export default function Layout({ children }: LayoutProps) {
     return (
