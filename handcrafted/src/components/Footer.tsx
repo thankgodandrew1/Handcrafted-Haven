@@ -16,9 +16,9 @@ export default function Footer() {
           <p className="text-center mb-2">Copyright &copy; 2023 | Handcrafted Haven | Brigham Young University - Idaho.</p>
           <div className="text-center">
             {/* If we will be working on these pages, I will change this a tag to Link for a better routing  */}
-            <a href="#" className="text-gray-400 hover:bg-black hover:text-white hover:bg-gray-200 hover:rounded-full transition duration-300 p-2 mx-2">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:bg-black hover:text-white hover:bg-gray-200 hover:rounded-full transition duration-300 p-2 mx-2">Terms of Service</a>
-            <a href="#" className="text-gray-400 hover:bg-black hover:text-white hover:bg-gray-200 hover:rounded-full transition duration-300 p-2 mx-2">Contact Us</a>
+            <a href="#" className="text-gray-400 hover:bg-black hover:text-white hover:bg-gray-200 hover:rounded-full transition duration-300 p-2 mx-2 md:mx-2">Privacy Policy</a>
+            <a href="#" className="text-gray-400 hover:bg-black hover:text-white hover:bg-gray-200 hover:rounded-full transition duration-300 p-2 mx-2 md:mx-2">Terms of Service</a>
+            <a href="#" className="text-gray-400 hover:bg-black hover:text-white hover:bg-gray-200 hover:rounded-full transition duration-300 p-2 mx-2 md:mx-2">Contact Us</a>
           </div>
         </div>
             </footer>
