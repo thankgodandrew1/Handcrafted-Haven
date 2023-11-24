@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Header() {
     return (
         <div className="header z-0 lg:z-10 lg:fixed w-full md:z-0">
@@ -14,8 +16,8 @@ export default function Header() {
                 <ul className="md:flex md:items-center md:z-auto w-full left-0 md:w-auto 
                 md:py-0 py-4 md:pl-0 pl-7 md:opacity-100  top-[-400px] transition-all ease-in duration-500">
                     <li className="text-2xl mx-4"><a href="/" className="cursor-pointer">Home</a></li>
-                    <li className="text-2xl mx-4"><a href="#" className="cursor-pointer">Seller Profiles</a></li>
-                    <li className="text-2xl mx-4"><a href="#" className="cursor-pointer">Product Listings</a></li>
+                    <li className="text-2xl mx-4"><Link href="" className="cursor-pointer">Seller Profiles</Link></li>
+                    <li className="text-2xl mx-4"><Link href="/productListings" className="cursor-pointer">Product Listings</Link></li>
                     <li className="text-green-500 text-2xl mx-4"><a href="#" className="cursor-pointer">Reviews and Ratings</a></li>
                 </ul>
             </nav>
