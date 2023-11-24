@@ -173,7 +173,7 @@ export default function ProductListings() {
   ];
 
   return (
-    <section className="py-12 px-6 bg-gradient-to-r from-muted to-background m-4 rounded-lg">
+    <section className="py-12 px-6 bg-gradient-to-r from-muted to-background m-4 rounded-lg mt-0">
       <h2 className="text-3xl font-semibold mb-4 font-heading mt-28">Product Listings</h2>
       <div className="grid grid-cols-6 md:grid-cols-5 gap-6">
         <div className="row-start-1 row-end-7">
