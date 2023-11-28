@@ -18,11 +18,18 @@ export default function Header() {
                 </div>
                 <ul className="md:flex md:items-center md:z-auto w-full left-0 md:w-auto 
                 md:py-0 py-4 md:pl-0 pl-7 md:opacity-100  top-[-400px] transition-all ease-in duration-500">
+<<<<<<< HEAD
                     <li className="text-2xm mx-4"><a href="/" className="cursor-pointer">Home</a></li>
                     <li className="text-2xm mx-4"><Link href="" className="cursor-pointer">Seller Profiles</Link></li>
                     <li className="text-2xm mx-4"><Link href="/productListings" className="cursor-pointer">Product Listings</Link></li>
                     <li className="text-green-500 text-2xm mx-4"><a href="#" className="cursor-pointer">Reviews and Ratings</a></li>
                     <li><Link href="/signin" className="cursor-pointer"><Image alt="profile" src="images/Profile.svg" width={30} height={30} /></Link></li>
+=======
+                    <li className="text-2xl mx-4"><a href="/" className="cursor-pointer">Home</a></li>
+                    <li className="text-2xl mx-4"><Link href="" className="cursor-pointer">Seller Profiles</Link></li>
+                    <li className="text-2xl mx-4"><Link href="/productListings" className="cursor-pointer">Product Listings</Link></li>
+                    <li className="text-green-500 text-2xl mx-4"><Link href="/ReviewsAndRatings" className="cursor-pointer">Reviews and Ratings</Link></li>
+>>>>>>> dcaf0ed32a79c7b895c0c511be40811139104733
                 </ul>
             </nav>
         </div>
