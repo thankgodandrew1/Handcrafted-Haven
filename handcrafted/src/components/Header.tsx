@@ -1,6 +1,13 @@
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Header() {
+
+    const [isClick, setIsClick] = useState(false)
+    function toggleNavBar () {
+        setIsClick(!isClick)
+    }
+
     return (
         <div className="header z-0 lg:z-10 lg:fixed w-full md:z-0">
             <nav className="md:flex p-5 md:justify-between w-auto">
@@ -11,15 +18,32 @@ export default function Header() {
                     Handcrafted Haven 
                 </span>
                 </a>
+                {isClick ? (
+                    <img className="menu_class md:hidden" src="https://icon-library.com/images/x-mark-icon/x-mark-icon-21.jpg" 
+                    alt="Hamburger menu" 
+                    height={40}
+                    width={40}
+                    onClick={toggleNavBar}
+                    />
+                ) : (
+                    <img className="menu_class md:hidden" src="https://icon-library.com/images/hamburger-menu-icon-transparent/hamburger-menu-icon-transparent-23.jpg" 
+                    alt="Hamburger menu" 
+                    height={40}
+                    width={40}
+                    onClick={toggleNavBar}
+                    />
 
+                )}
                 </div>
-                <ul className="md:flex md:items-center md:z-auto w-full left-0 md:w-auto 
-                md:py-0 py-4 md:pl-0 pl-7 md:opacity-100  top-[-400px] transition-all ease-in duration-500">
-                    <li className="text-2xl mx-4"><a href="/" className="cursor-pointer">Home</a></li>
-                    <li className="text-2xl mx-4"><Link href="" className="cursor-pointer">Seller Profiles</Link></li>
-                    <li className="text-2xl mx-4"><Link href="/productListings" className="cursor-pointer">Product Listings</Link></li>
-                    <li className="text-green-500 text-2xl mx-4"><a href="#" className="cursor-pointer">Reviews and Ratings</a></li>
-                </ul>
+                {isClick && (
+                    <ul className="sm:hidden md:block md:flex md:items-center md:z-auto w-full left-0 md:w-auto sm:block md:py-0 py-4 md:pl-0 pl-7
+                     md:opacity-100  top-[-400px] transition-all ease-in duration-500">
+                        <li className="text-xl mx-4"><a href="/" className="cursor-pointer">Home</a></li>
+                        <li className="text-xl mx-4"><Link href="" className="cursor-pointer">Seller Profiles</Link></li>
+                        <li className="text-xl mx-4"><Link href="/productListings" className="cursor-pointer">Product Listings</Link></li>
+                        <li className="text-green-500 text-xl mx-4"><a href="#" className="cursor-pointer">Reviews and Ratings</a></li>
+                    </ul>
+                )}
             </nav>
         </div>
     )
