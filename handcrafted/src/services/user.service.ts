@@ -6,7 +6,7 @@ import { fetchWrapper } from '@/helpers';
 import { alertService } from './alert.service';
 
 const { publicRuntimeConfig } = getConfig();
-const baseUrl = `${publicRuntimeConfig.apiUrl}/users`;
+const baseUrl = 'http://localhost:3001';
 
 interface User {
   id: string;
@@ -33,7 +33,7 @@ export const userService = {
 };
 
 async function login(username: string, password: string): Promise<void> {
-  const user: User = await fetchWrapper.post(`${baseUrl}/authenticate`, { username, password });
+  const user: User = await fetchWrapper.post(`${baseUrl}/api/users/authenticate`, { username, password });
   updateLocalStorageAndPublish(user);
 }
 
@@ -45,7 +45,7 @@ function logout(): void {
 }
 
 async function register(user: any): Promise<void> {
-  await fetchWrapper.post(`${baseUrl}/register`, user);
+  await fetchWrapper.post(`${baseUrl}/api/users/register`, user);
 }
 
 async function getAll(): Promise<User[]> {

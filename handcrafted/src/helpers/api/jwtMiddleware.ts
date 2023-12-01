@@ -1,7 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
+import express from 'express';
 import jwt, { VerifyErrors } from 'jsonwebtoken';
 import util from 'util';
 import getConfig from 'next/config';
+
+const app = express();
+app.use(express.json());
 
 interface ServerRuntimeConfig {
   secret: string;
@@ -14,7 +18,8 @@ const verifyToken = util.promisify<string, string, jwt.VerifyOptions>(jwt.verify
 
 const jwtMiddleware = () => async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
+    console.log(req.headers);
+    const token = req.headers['authorization']?.replace('Bearer ', '');
     if (!token) {
       throw new Error('No token provided');
     }
@@ -25,6 +30,7 @@ const jwtMiddleware = () => async (req: Request, res: Response, next: NextFuncti
     handleJwtError(err as VerifyErrors, res);
   }
 };
+
 
 const handleJwtError = (err: VerifyErrors, res: Response) => {
   if (err.name === 'JsonWebTokenError') {

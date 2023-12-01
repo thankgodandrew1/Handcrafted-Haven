@@ -8,8 +8,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
 interface RegisterPageProps {
-    user?: any; // Replace 'any' with the actual type of the 'user' prop
+    user?: FormData; // Replace 'UserType' with the actual type of the 'user' prop
 }
+
 
 interface FormData {
     firstName: string;
@@ -19,9 +20,7 @@ interface FormData {
     // Add other fields as needed
 }
 
-const RegisterPage: React.FC<RegisterPageProps> = (props) => {
-
-    const user = props?.user;
+const RegisterPage: React.FC<RegisterPageProps> = () => {
     const router = useRouter();
 
     // form validation rules 
@@ -33,49 +32,28 @@ const RegisterPage: React.FC<RegisterPageProps> = (props) => {
         email: Yup.string()
             .required('Email is required'),
         password: Yup.string()
-            .transform(x => x === '' ? undefined : x)
-            // password optional in edit mode
-            .concat(user ? Yup.string().nullable() : Yup.string().required('Password is required'))
+            .required('Password is required')
             .min(6, 'Password must be at least 6 characters')
     });
     type FormOptionsType = {
         resolver: any;
-        defaultValues?: any;
     };
     const formOptions: FormOptionsType = {
         resolver: yupResolver(validationSchema),
-        defaultValues: user ? props.user : undefined,
     };
 
-    // set default form values if in edit mode
-    if (user) {
-        formOptions.defaultValues = props.user;
-    }
 
     // get functions to build form with useForm() hook
-    const { register, handleSubmit, reset, formState } = useForm(formOptions);
+    const { register, handleSubmit, formState } = useForm(formOptions);
     const { errors } = formState;
 
-    async function onSubmit(data: FormData) {
-        alertService.clear();
-        try {
-            // create or update user based on user prop
-            let message;
-            if (user) {
-                await userService.update(user.id, data);
-                message = 'User updated';
-            } else {
-                await userService.register(data);
-                message = 'User added';
-            }
-
-            // redirect to user list with success message
-            router.push('/');
-            alertService.success(message, true);
-        } catch (error: any) {
-            alertService.error(error.message);
-            console.error(error);
-        }
+    function onSubmit(user: any) {
+        return userService.register(user)
+            .then(() => {
+                alertService.success('Registration successful', true);
+                router.push('/signin');
+            })
+            .catch(alertService.error);
     }
     return (
         <>
@@ -156,7 +134,7 @@ const RegisterPage: React.FC<RegisterPageProps> = (props) => {
                                     </div>
                                 </div>
                                 <div className="flex items-center justify-center mt-8">
-                                    <button type="button" disabled={formState.isSubmitting} className="text-black py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                                    <button type="button" disabled={formState.isSubmitting} onClick={handleSubmit(onSubmit)} className="text-black py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm me-1"></span>}Sign up
                                     </button>
                                 </div>

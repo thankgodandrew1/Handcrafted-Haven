@@ -20,6 +20,7 @@
     "mongoose": "^8.0.2",
     "next": "14.0.3",
     "next-auth": "^4.24.5",
+    "node-fetch": "^3.3.2",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
+    "@types/node-fetch": "^2.6.9",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.16",
