@@ -38,8 +38,8 @@ module.exports = {
       '100': '1',
     },
     fontFamily: {
-      body: ['Roboto', 'Helvetica', 'Arial'],
-      heading: ['Montserrat', 'sans-serif', 'serif'],
+      body: ['DM Sans', 'Helvetica', 'Arial'],
+      heading: ['DM Sans', 'sans-serif', 'serif'],
     },
     boxShadow: {
       xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
