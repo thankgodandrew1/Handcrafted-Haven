@@ -1,4 +1,6 @@
 import Image from "next/image"
+import Link from "next/link"
+import Alert from "@/assets/Alerts"
 
 export default function Ratings () {
     return (
@@ -17,9 +19,9 @@ export default function Ratings () {
                     <p>
                         Let us know what you feel about our services
                     </p>
-                    <a href="#recommend">
+                    <Link href="#recommend">
                     <button type="submit" className="bg-muted hover:bg-link transition duration-30 text-white font-bold py-2 px-4 rounded font-heading mt-28">Start Review</button>
-                    </a>
+                    </Link>
                 </div>
             </div>
             <div id="recommend" className="h-auto rounded-xl border-2 p-10 m-6 grid grid-cols-4 w-max mt-16">
@@ -65,6 +67,9 @@ export default function Ratings () {
                             </div>
                         </li>
                     </ul>
+                    <Link href="#">
+                    <button type="submit" onClick={Alert} className="bg-muted hover:bg-link transition duration-30 text-white font-bold py-2 px-4 rounded font-heading mt-28">Submit Review</button>
+                    </Link>
                 </div>
             </div>
         </section>

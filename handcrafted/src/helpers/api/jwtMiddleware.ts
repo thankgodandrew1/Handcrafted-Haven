@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
 import { expressjwt } from 'express-jwt';
-import jwt, { VerifyErrors } from 'jsonwebtoken';
 import util from 'util';
 import getConfig from 'next/config';
 

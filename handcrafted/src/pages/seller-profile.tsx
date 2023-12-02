@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import ProfileForm from '@/components/ProfileForm';
 import Header from '@/components/Header'
+import Head from "next/head";
 
 // Define an interface for the formData
 interface FormData {
@@ -12,6 +13,9 @@ interface FormData {
   university: string;
   bio: string;
 }
+
+export const siteTitle = 'Sellers Profile | HandCrafted Have';
+
 export default function SellerProfile() {
   const [userData, setUserData] = useState<FormData | null>(null);
   const handleFormSubmit = (formData: FormData) => {
@@ -20,6 +24,9 @@ export default function SellerProfile() {
   return (
     
     <>
+    <Head>
+      <title>{siteTitle}</title>
+    </Head>
     <Header />
       {userData ? (
         // Display user profile based on entered data
