@@ -50,7 +50,7 @@ function userModel(): Model<UserDocument> {
     versionKey: false,
     transform: function (doc, ret) {
       delete ret._id;
-      // delete ret.hash;
+      delete ret.hash;
     },
   });
 

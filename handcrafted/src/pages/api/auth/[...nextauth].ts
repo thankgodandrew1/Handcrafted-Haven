@@ -22,37 +22,37 @@ export default NextAuth({
       clientSecret: process.env.AUTH0_CLIENT_SECRET,
       domain: process.env.AUTH0_DOMAIN,
     }),
-    Providers.Credentials({
-        name: 'Credentials',
-        credentials: {
-          username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
-          password: { label: 'Password', type: 'password' },
-        },
-        async authorize(credentials: any, req: Response) {
-          try {
-            // Your custom logic to validate credentials and retrieve user data
-            const res = await fetch("/your/endpoint", {
-              method: 'POST',
-              body: JSON.stringify(credentials),
-              headers: { "Content-Type": "application/json" },
-            });
+    // Providers.Credentials({
+    //     name: 'Credentials',
+    //     credentials: {
+    //       username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
+    //       password: { label: 'Password', type: 'password' },
+    //     },
+    //     async authorize(credentials: any, req: Response) {
+    //       try {
+    //         // Your custom logic to validate credentials and retrieve user data
+    //         const res = await fetch("/your/endpoint", {
+    //           method: 'POST',
+    //           body: JSON.stringify(credentials),
+    //           headers: { "Content-Type": "application/json" },
+    //         });
     
-            const user = await res.json();
+    //         const user = await res.json();
     
-            // If no error and we have user data, return it
-            if (res.ok && user) {
-              return Promise.resolve(user);
-            }
+    //         // If no error and we have user data, return it
+    //         if (res.ok && user) {
+    //           return Promise.resolve(user);
+    //         }
     
-            // Return null if user data could not be retrieved
-            return Promise.resolve(null);
-          } catch (error) {
-            // Handle any errors during the authorization process
-            console.error('Authentication error:', error);
-            return Promise.resolve(null);
-          }
-        },
-      }),
+    //         // Return null if user data could not be retrieved
+    //         return Promise.resolve(null);
+    //       } catch (error) {
+    //         // Handle any errors during the authorization process
+    //         console.error('Authentication error:', error);
+    //         return Promise.resolve(null);
+    //       }
+    //     },
+    //   }),
   ],
   adapter: PrismaAdapter(prisma),
 });
