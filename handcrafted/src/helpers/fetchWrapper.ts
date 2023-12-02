@@ -31,9 +31,15 @@ async function request(method: string, url: string, body?: any): Promise<any> {
     requestOptions.body = JSON.stringify(body);
   }
 
-  const response = await fetch(url, requestOptions);
-  return handleResponse(response);
+  try {
+    const response = await fetch(url, requestOptions);
+    return handleResponse(response);
+  } catch (error) {
+    // Handle network errors or other exceptions
+    return Promise.reject('Network error');
+  }
 }
+
 
 // helper functions
 
