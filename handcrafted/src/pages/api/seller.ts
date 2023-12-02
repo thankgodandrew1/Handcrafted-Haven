@@ -1,10 +1,8 @@
+// api route for sellers
+
+
 import { NextApiRequest, NextApiResponse } from 'next';
-import {
-  createSeller,
-  getSellerById,
-  updateSeller,
-  deleteSeller,
-} from '@/services/sellerService';
+import { createSeller, getSellerById, updateSeller, deleteSeller, } from '@/services/sellerService';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method, query: { id } } = req;
@@ -14,20 +12,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       try {
         const seller = await getSellerById(id as string);
         res.status(200).json(seller);
-      } catch (error) {
-        res.status(500).json({ error: error.message });
+      } catch (error) { res.status(500).json({ error: error.message });
       }
       break;
-
     case 'PUT':
-      try {
-        const updatedSeller = await updateSeller(id as string, req.body);
+      try {const updatedSeller = await updateSeller(id as string, req.body);
         res.status(200).json(updatedSeller);
       } catch (error) {
         res.status(500).json({ error: error.message });
       }
       break;
-
     case 'DELETE':
       try {
         const isDeleted = await deleteSeller(id as string);
@@ -45,7 +39,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(500).json({ error: error.message });
       }
       break;
-
     default:
       res.status(405).end(`Method ${method} Not Allowed`);
   }

@@ -1,10 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import {
-  createReview,
-  getReviewById,
-  updateReview,
-  deleteReview,
-} from '@/services/reviewService';
+import { createReview, getReviewById, updateReview, deleteReview } from '@/services/reviewService';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method, query: { id } } = req;
@@ -27,7 +22,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(500).json({ error: error.message });
       }
       break;
-
     case 'DELETE':
       try {
         const isDeleted = await deleteReview(id as string);
@@ -36,7 +30,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(500).json({ error: error.message });
       }
       break;
-
     case 'POST':
       try {
         const newReview = await createReview(req.body);
@@ -44,8 +37,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       } catch (error) {
         res.status(500).json({ error: error.message });
       }
+      
       break;
-
     default:
       res.status(405).end(`Method ${method} Not Allowed`);
   }

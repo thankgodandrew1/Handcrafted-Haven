@@ -4,6 +4,7 @@ import { Seller } from '@/models/Seller';
 import Joi from 'joi';
 import { connectToDatabase } from '@/utils/db';
 
+//validates inputs
 const sellerSchema = Joi.object({
   userId: Joi.string().required(),
   profile: Joi.object({
@@ -27,14 +28,13 @@ let db: Db;
 async function getDatabase(): Promise<Db> {
   if (!db) {
     db = await connectToDatabase();
-  }
-  return db;
+  } return db;
 }
 
 export async function createSeller(seller: Seller): Promise<Seller | null> {
   const { error, value } = sellerSchema.validate(seller);
   if (error) {
-    throw new Error(error.details.map((err) => err.message).join(', '));
+  throw new Error(error.details.map((err) => err.message).join(', '));
   }
 
   const database = await getDatabase();
@@ -53,15 +53,13 @@ export async function updateSeller(sellerId: string, updatedSeller: Partial<Sell
   const database = await getDatabase();
   const sellersCollection = database.collection<Seller>(process.env.SELLERS_COLLECTION || 'sellers');
   const result = await sellersCollection.findOneAndUpdate(
-    { _id: new ObjectId(sellerId) },
-    { $set: updatedSeller },
+    { _id: new ObjectId(sellerId) }, { $set: updatedSeller },
     { returnOriginal: false }
   );
   return result.value;
 }
 
-export async function deleteSeller(sellerId: string): Promise<boolean> {
-  const database = await getDatabase();
+export async function deleteSeller(sellerId: string): Promise<boolean> { const database = await getDatabase();
   const sellersCollection = database.collection<Seller>(process.env.SELLERS_COLLECTION || 'sellers');
   const result = await sellersCollection.deleteOne({ _id: new ObjectId(sellerId) });
   return result.deletedCount === 1;
