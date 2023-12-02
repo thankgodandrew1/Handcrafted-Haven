@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Ratings () {
     return (
@@ -65,6 +66,23 @@ export default function Ratings () {
                             </div>
                         </li>
                     </ul>
+                </div>
+            </div>
+            <div className="h-auto rounded-xl border-2 p-10 m-6 grid grid-cols-4 w-max mt-16">
+                    <Image 
+                        width={200}
+                        height={400}
+                        src="/productImages/pngwing.com13.png"
+                        alt="Rate img"
+                        className="rounded-sm mb-4 items-center border-r-2"/>
+                <div className="col-start-2 col-end-4 border-l-2 p-8 ml-16">
+                    <h1 className="font-bold">
+                        How would you rate our service overall?
+                    </h1>
+                    <p></p>
+                    <Link href="#">
+                    <button type="submit" className="bg-muted hover:bg-link transition duration-30 text-white font-bold py-2 px-4 rounded font-heading mt-28">Submit Review</button>
+                    </Link>
                 </div>
             </div>
         </section>
