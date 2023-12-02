@@ -51,7 +51,7 @@ export default function Header() {
                     <li className="text-2xl mx-4"><a href="/" className="cursor-pointer">Home</a></li>
                     <li className="text-2xl mx-4"><Link href="" className="cursor-pointer">Seller Profiles</Link></li>
                     <li className="text-2xl mx-4"><Link href="/productListings" className="cursor-pointer">Product Listings</Link></li>
-                    <li className="text-green-500 text-2xl mx-4"><a href="#" className="cursor-pointer">Reviews and Ratings</a></li>
+                    <li className="text-green-500 text-2xl mx-4"><a href="/ReviewsAndRatings" className="cursor-pointer">Reviews and Ratings</a></li>
                 </ul>
             </nav>
         </div>
