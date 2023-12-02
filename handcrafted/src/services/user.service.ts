@@ -6,7 +6,7 @@ import { fetchWrapper } from '@/helpers';
 import { alertService } from './alert.service';
 
 const { publicRuntimeConfig } = getConfig();
-const baseUrl = 'http://localhost:3001';
+const baseUrl = `${publicRuntimeConfig.apiUrl}`;
 
 interface User {
   id: string;
@@ -32,8 +32,8 @@ export const userService = {
   delete: deleteUser,
 };
 
-async function login(username: string, password: string): Promise<void> {
-  const user: User = await fetchWrapper.post(`${baseUrl}/api/users/authenticate`, { username, password });
+async function login(email: string, password: string): Promise<void> {
+  const user: User = await fetchWrapper.post(`${baseUrl}/users/authenticate`, { email, password });
   updateLocalStorageAndPublish(user);
 }
 
@@ -45,7 +45,7 @@ function logout(): void {
 }
 
 async function register(user: any): Promise<void> {
-  await fetchWrapper.post(`${baseUrl}/api/users/register`, user);
+  await fetchWrapper.post(`${baseUrl}/users/register`, user);
 }
 
 async function getAll(): Promise<User[]> {
@@ -53,11 +53,11 @@ async function getAll(): Promise<User[]> {
 }
 
 async function getById(id: string): Promise<User> {
-  return await fetchWrapper.get(`${baseUrl}/${id}`);
+  return await fetchWrapper.get(`${baseUrl}/users/${id}`);
 }
 
 async function update(id: string, params: any): Promise<void> {
-  await fetchWrapper.put(`${baseUrl}/${id}`, params);
+  await fetchWrapper.put(`${baseUrl}/users/${id}`, params);
 
   if (id === userSubject.value?.id) {
     const updatedUser = { ...userSubject.value, ...params };
@@ -66,7 +66,7 @@ async function update(id: string, params: any): Promise<void> {
 }
 
 async function deleteUser(id: string): Promise<void> {
-  await fetchWrapper.delete(`${baseUrl}/${id}`);
+  await fetchWrapper.delete(`${baseUrl}/users/${id}`);
 
   if (id === userSubject.value?.id) {
     logout();

@@ -35,7 +35,7 @@ async function authenticate({ email, password }: { email: string; password: stri
   const user: UserDocument | null = await User.findOne({ email });
 
   if (!(user && bcrypt.compareSync(password, user.hash))) {
-    throw new Error('Username or password is incorrect');
+    throw new Error('password is incorrect');
   }
 
   // create a jwt token that is valid for 7 days
@@ -57,10 +57,10 @@ async function getById(id: string): Promise<UserAttributes | null> {
   return user ? user.toJSON() : null;
 }
 
-async function create(params: { username: string; password: string }): Promise<void> {
+async function create(params: { email: string; password: string }): Promise<void> {
   // validate
-  if (await User.findOne({ username: params.username })) {
-    throw new Error(`Username "${params.username}" is already taken`);
+  if (await User.findOne({ email: params.email })) {
+    throw new Error(`Email "${params.email}" is already used`);
   }
 
   const user: UserDocument = new User(params);

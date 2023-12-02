@@ -23,7 +23,7 @@ export default function apiHandler(handler: ApiHandler) {
 
     try {
       // global middleware
-      await jwtMiddleware()(req, res, next);
+      await jwtMiddleware(req, res);
 
       // route handler
       const routeHandler = handler[method];
