@@ -12,13 +12,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       try {
         const seller = await getSellerById(id as string);
         res.status(200).json(seller);
-      } catch (error) { res.status(500).json({ error: error.message });
+      } catch (error: any) { res.status(500).json({ error: error.message });
       }
       break;
     case 'PUT':
       try {const updatedSeller = await updateSeller(id as string, req.body);
         res.status(200).json(updatedSeller);
-      } catch (error) {
+      } catch (error: any) {
         res.status(500).json({ error: error.message });
       }
       break;
@@ -26,7 +26,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       try {
         const isDeleted = await deleteSeller(id as string);
         res.status(200).json({ success: isDeleted });
-      } catch (error) {
+      } catch (error: any) {
         res.status(500).json({ error: error.message });
       }
       break;
@@ -35,7 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       try {
         const newSeller = await createSeller(req.body);
         res.status(201).json(newSeller);
-      } catch (error) {
+      } catch (error: any) {
         res.status(500).json({ error: error.message });
       }
       break;
