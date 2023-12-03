@@ -6,6 +6,7 @@ import { userService } from '@/services/user.service';
 import { alertService } from '@/services/alert.service';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import Head from "next/head";
 
 interface RegisterPageProps {
     user?: FormData; // Replace 'UserType' with the actual type of the 'user' prop
@@ -17,9 +18,8 @@ interface FormData {
     lastName: string;
     email: string;
     password: string;
-    // Add other fields as needed
 }
-
+export const siteTitle = 'Registration | HandCrafted Haven';
 const RegisterPage: React.FC<RegisterPageProps> = () => {
     const router = useRouter();
 
@@ -57,6 +57,9 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
     }
     return (
         <>
+        <Head>
+            <title>{siteTitle}</title>
+        </Head>
             <Header />
             <section className="bg-gray-800 mt-30">
                 <div className="p-8 lg:w-1/2 mx-auto">

@@ -14,7 +14,7 @@ interface FormData {
   bio: string;
 }
 
-export const siteTitle = 'Sellers Profile | HandCrafted Have';
+export const siteTitle = 'Sellers Profile | HandCrafted Haven';
 
 export default function SellerProfile() {
   const [userData, setUserData] = useState<FormData | null>(null);
