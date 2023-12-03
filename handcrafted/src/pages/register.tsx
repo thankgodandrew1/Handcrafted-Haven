@@ -9,7 +9,7 @@ import * as Yup from 'yup';
 import Head from "next/head";
 
 interface RegisterPageProps {
-    user?: FormData; // Replace 'UserType' with the actual type of the 'user' prop
+    user?: FormData; 
 }
 
 
