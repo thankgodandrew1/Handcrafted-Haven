@@ -7,7 +7,7 @@ export default function Footer() {
             <i className="fab fa-facebook-f"></i>
           </a>
             <a href="#" className="mr-4 hover:bg-black hover:text-white hover:bg-gray-200 hover:rounded-full transition duration-300 p-2">
-              <i className="fab fa-twitter"></i>
+              <i className="fa-brands fa-square-x-twitter"></i>
             </a>
             <a href="#" className="mr-4 hover:bg-black hover:text-white hover:bg-gray-200 hover:rounded-full transition duration-300 p-2">
               <i className="fab fa-instagram"></i>

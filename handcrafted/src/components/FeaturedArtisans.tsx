@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { StarRating } from './Star-rating';
 
 export default function FeaturedArtisans() {
   const featuredArtisans = [
@@ -63,6 +64,7 @@ export default function FeaturedArtisans() {
             <button className="bg-muted hover:bg-link transition duration-30 text-white font-bold py-2 px-4 rounded mt-2 font-heading">
               View More
             </button>
+          <StarRating/>
           </div>
         ))}
       </div>

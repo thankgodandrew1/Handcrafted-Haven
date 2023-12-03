@@ -36,7 +36,7 @@ export default function Testimonials() {
                bg-background bg-opacity-80 rounded-lg shadow-lg p-4 flex items-center 
                transition-transform duration-300 transform-gpu hover:scale-105">
                 <div className="flex-shrink-0">
-                  <Image src={testimonial.image} alt={testimonial.author} width={48} height={48} className="rounded-full" />
+                  <Image src={testimonial.image} alt={testimonial.author} width={48} height={48} className="rounded-full w-auto h-auto" />
                 </div>
                 <div className="ml-4">
                   <p className="text-lg">{testimonial.message}</p>
