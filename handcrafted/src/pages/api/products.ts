@@ -1,4 +1,3 @@
-// pages/api/product.ts
 import { NextApiRequest, NextApiResponse } from 'next';
 import { createProduct, getProductById, updateProduct, deleteProduct, } from '@/services/productService';
 
