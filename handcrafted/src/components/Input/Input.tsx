@@ -1,27 +1,27 @@
-import { FC, FormEvent } from "react";
+import { FC, FormEvent } from 'react'
 
 type Props = {
-  type?: string;
-  name: string;
-  placeholder?: string;
-  extraClass?: string;
-  required?: boolean;
-  border?: string;
-  id?: string;
-  label?: string;
-  onChange?: (e: FormEvent<HTMLInputElement>) => void;
-  value?: string;
-  readOnly?: boolean;
-};
+  type?: string
+  name: string
+  placeholder?: string
+  extraClass?: string
+  required?: boolean
+  border?: string
+  id?: string
+  label?: string
+  onChange?: (e: FormEvent<HTMLInputElement>) => void
+  value?: string
+  readOnly?: boolean
+}
 
 const Input: FC<Props> = ({
-  type = "text",
+  type = 'text',
   name,
   placeholder,
   extraClass,
   required = false,
-  border = "",
-  label = "",
+  border = '',
+  label = '',
   onChange,
   value,
   readOnly = false,
@@ -30,7 +30,7 @@ const Input: FC<Props> = ({
     type={type}
     readOnly={readOnly}
     className={`${
-      border !== "" ? border : "border-2 border-gray500"
+      border !== '' ? border : 'border-2 border-gray500'
     } py-2 px-4 outline-none ${extraClass}`}
     name={name}
     placeholder={placeholder}
@@ -39,6 +39,6 @@ const Input: FC<Props> = ({
     value={value}
     aria-label={label}
   />
-);
+)
 
-export default Input;
+export default Input

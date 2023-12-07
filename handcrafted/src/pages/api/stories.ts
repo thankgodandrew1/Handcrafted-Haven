@@ -3,30 +3,12 @@ import { MongoClient, Db, ObjectId } from 'mongodb'
 import Joi from 'joi'
 import { connectToDatabase } from '@/utils/db'
 import multer from 'multer'
-// import { v4 as uuidv4 } from 'uuid';
 
-const categories = [
-  'Jewelry',
-  'Home Decor',
-  'Art',
-  'Clothing',
-  'Accessories',
-  'Pottery',
-  'Woodwork',
-  'Toys',
-  'Handbag',
-  'Furniture',
-]
-
-const productSchema = Joi.object({
+const storySchema = Joi.object({
   sellerId: Joi.string().required(),
-  title: Joi.string().required(),
-  description: Joi.string().required(),
-  price: Joi.number().positive().required(),
-  // images: Joi.array().items(Joi.any().required()).min(1).required(),
-  category: Joi.string()
-    .valid(...categories)
-    .required(),
+  storyTitle: Joi.string().required(),
+  storyContent: Joi.string().required(),
+  // images: Joi.array().items(Joi.string()).required(),
 })
 
 export const config = {
@@ -59,42 +41,13 @@ export default async function handler(
   if (method === 'GET') {
     try {
       const sellerId = id as string
-      const productsCollection = db.collection(
-        process.env.PRODUCTS_COLLECTION || 'products',
+      const sellersStoryCollection = db.collection(
+        process.env.SELLERS_STORY_COLLECTION || 'sellersStory',
       )
-      const products = await productsCollection
+      const sellerStories = await sellersStoryCollection
         .find({ sellerId: sellerId })
         .toArray()
-      res.status(200).json({ products })
-    } catch (error: any) {
-      res.status(500).json({ error: error.message })
-    }
-  }
-  //  else if (method === 'PUT') {
-  //   try {
-  //     const updatedProduct = req.body
-  //     const productsCollection = db.collection(
-  //       process.env.PRODUCTS_COLLECTION || 'products',
-  //     )
-  //     const result = await productsCollection.findOneAndUpdate(
-  //       { _id: new ObjectId(id as string) },
-  //       { $set: updatedProduct },
-  //       { returnOriginal: false },
-  //     )
-  //     res.status(200).json(result.value)
-  //   } catch (error: any) {
-  //     res.status(500).json({ error: error.message })
-  //   }
-  // } 
-  else if (method === 'DELETE') {
-    try {
-      const productsCollection = db.collection(
-        process.env.PRODUCTS_COLLECTION || 'products',
-      )
-      const result = await productsCollection.deleteOne({
-        _id: new ObjectId(id as string),
-      })
-      res.status(200).json({ success: result.deletedCount === 1 })
+      res.status(200).json({ sellerStories })
     } catch (error: any) {
       res.status(500).json({ error: error.message })
     }
@@ -105,17 +58,16 @@ export default async function handler(
         return res.status(500).json({ error: 'File upload failed' })
       }
       try {
-        const product = req.body
-        // console.log('Product', product);
+        const story = req.body
+        // console.log('Story', storu);
         // console.log('Uploaded files:', req.files);
-        const { error, value } = productSchema.validate(product, {
+        const { error, value } = storySchema.validate(story, {
           abortEarly: false,
         })
         if (error) {
           console.error('Validation Error:', error.details)
           throw new Error('Invalid crafted item data')
         }
-
         const images = req.files as Express.Multer.File[]
         const imageBase64Data = []
         const imageTypes = []
@@ -136,21 +88,21 @@ export default async function handler(
         value.images = imageBase64Data
         value.imageTypes = imageTypes
 
-        const productsCollection = db.collection(
-          process.env.PRODUCTS_COLLECTION || 'products',
+        const sellersStoryCollection = db.collection(
+          process.env.SELLERS_STORY_COLLECTION || 'sellersStory',
         )
-        const result = await productsCollection.insertOne(value)
+        const result = await sellersStoryCollection.insertOne(value)
         if (result && result.insertedId) {
-          const insertedProduct = await productsCollection.findOne({
+          const insertedStory = await sellersStoryCollection.findOne({
             _id: result.insertedId,
           })
-          if (insertedProduct) {
-            res.status(201).json(insertedProduct)
+          if (insertedStory) {
+            res.status(201).json(insertedStory)
           } else {
-            throw new Error('Failed to retrieve inserted product data')
+            throw new Error('Failed to retrieve inserted story data')
           }
         } else {
-          throw new Error('Failed to insert product into the database')
+          throw new Error('Failed to insert story into the database')
         }
       } catch (error: any) {
         res.status(400).json({ error: error.message })

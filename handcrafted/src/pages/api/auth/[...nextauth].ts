@@ -1,11 +1,11 @@
-import NextAuth from "next-auth";
+import NextAuth from 'next-auth'
 //@ts-ignore
-import Providers from "next-auth/providers";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
-import { Request, Response } from "express";
+import Providers from 'next-auth/providers'
+import { PrismaAdapter } from '@next-auth/prisma-adapter'
+import { PrismaClient } from '@prisma/client'
+import { Request, Response } from 'express'
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 export default NextAuth({
   providers: [
@@ -36,14 +36,14 @@ export default NextAuth({
     //           body: JSON.stringify(credentials),
     //           headers: { "Content-Type": "application/json" },
     //         });
-    
+
     //         const user = await res.json();
-    
+
     //         // If no error and we have user data, return it
     //         if (res.ok && user) {
     //           return Promise.resolve(user);
     //         }
-    
+
     //         // Return null if user data could not be retrieved
     //         return Promise.resolve(null);
     //       } catch (error) {
@@ -55,4 +55,4 @@ export default NextAuth({
     //   }),
   ],
   adapter: PrismaAdapter(prisma),
-});
+})
