@@ -98,7 +98,7 @@ const ProductListings: React.FC<ProductListingsProps> = ({
               Sort &#x25BC;
             </button>
             {showSortOptions && (
-              <div className="absolute bg-white border rounded-lg shadow-md py-2 mt-2">
+              <div className="z-10 absolute bg-white border rounded-lg shadow-md py-2 mt-2">
                 <button
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                   onClick={() => setSortType('name')}
