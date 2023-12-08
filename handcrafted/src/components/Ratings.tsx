@@ -13,7 +13,7 @@ export default function Ratings() {
           alt="Rate img"
           className="rounded-sm mb-4 md:block hidden items-center border-r-2"
         />
-        <div className="col-start-2 col-end-4 border-none md:border-l-2 p-8 ml-0 md:ml-16">
+        <div className="col-start-1 col-end-4 border-none md:border-l-2 p-2">
           <h1 className="font-bold">Rate and Review</h1>
           <p>Let us know what you feel about our services</p>
           <Link href="#recommend">
@@ -37,7 +37,7 @@ export default function Ratings() {
           alt="Rate img"
           className="rounded-sm mb-4 md:block hidden items-center border-r-2"
         />
-        <div className="col-start-2 col-end-4 border-none md:border-l-2 p-8 ml-0 md:ml-16">
+        <div className="col-start-1 col-end-4 border-none md:border-l-2 p-2">
           <h1 className="font-bold">Would you recommend us to your friends?</h1>
           <ul className="w-48 text-sm font-medium text-gray-900 border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
             <li className="w-full dark:border-gray-600">
