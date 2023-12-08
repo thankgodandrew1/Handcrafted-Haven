@@ -74,11 +74,11 @@ const ProductListings: React.FC<ProductListingsProps> = ({
 
   return (
     // JSX for the UI
-    <section className="py-12 px-6 bg-gradient-to-r from-muted to-background m-4 rounded-lg mt-0">
-      <h2 className="text-3xl font-semibold mb-4 font-heading mt-28">
+    <section className="py-12 px-6 bg-gradient-to-r from-muted to-background m-4 rounded-lg mt-12 md:mt-0">
+      <h2 className="text-3xl font-semibold mb-4 font-heading md:mt-12 mt-2">
         Product Listings
       </h2>
-      <div className="grid grid-cols-6 md:grid-cols-5 gap-6">
+      <div className="md:grid md:grid-cols-5 md:gap-6 mt-4">
         <div className="row-start-1 row-end-7">
           <input
             className="p-2 rounded-xl text-left float-left -ml-2"
@@ -86,14 +86,10 @@ const ProductListings: React.FC<ProductListingsProps> = ({
             placeholder="Search..."
             value={searchQuery}
             onChange={handleSearch}
-          />
+          /><br />
           <button type="submit">
-            <i
-              className="fa fa-search float-left border-l-0 text-white 
-          bg-secondary w-16 p-3 rounded-r-xl -mt-10 mb-6 ml-32"
-            ></i>
           </button>
-          <h1 className="-mt-6">Categories</h1>
+          <h1 className="md:-mt-6 mt-2">Categories</h1>
           <div className="p-3 m-2 relative">
             <button
               className="p-3 px-5 bg-black  hover:bg-text  transition duration-300 text-white font-bold rounded-lg"
@@ -123,7 +119,7 @@ const ProductListings: React.FC<ProductListingsProps> = ({
           <div
             key={product.id}
             className="transition-transform duration-300
-            transform-gpu hover:scale-105 bg-background rounded-lg shadow-lg p-4"
+            transform-gpu hover:scale-105 bg-background rounded-lg shadow-lg p-4 mt-4"
           >
             <Image
               width={200}

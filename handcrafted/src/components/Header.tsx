@@ -24,7 +24,7 @@ export default function Header() {
       <nav className="md:flex p-5 md:justify-between w-auto">
         <div className="flex justify-between items-center cursor-pointer">
           <a href="/" className="cursor-pointer">
-            <span className="text-3xl font-bold">
+            <span className="text-2xl md:text-3xl font-bold">
               <img
                 width={40}
                 height={40}

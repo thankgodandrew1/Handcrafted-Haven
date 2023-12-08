@@ -232,25 +232,32 @@ const SellerProfile = () => {
   }
 
   if (loading) {
-    return <div className="animate-pulse">Loading seller information...</div>
+    return <div className="animate-pulse mt-8">Loading seller information...</div>
   }
 
   return (
-    <div className="max-w-4xl mx-auto py-8 m-[128px]">
+    <div className="md:max-w-4xl w-full mx-auto p-5 md:py-8 m-[0px] md:m-[128px]">
       <h1 className="text-3xl font-bold mb-4">Seller Profile</h1>
       <div className="bg-white shadow-md rounded-lg p-4 mb-4">
         <h2 className="text-xl font-bold mb-2">Basic Information</h2>
+        <div>
         <Image
           width={100}
           height={100}
           src={seller?.profile?.storeImage}
           alt="Seller Profile Image"
+          className=" rounded-sm"
         />
+        </div>
+        </div>
+        <div className='bg-white shadow-md rounded-lg p-4 mb-4'>
         <p>Store Name: {seller?.profile?.storeName}</p>
         <p>Bio: {seller?.profile?.bio}</p>
         <p>Location: {seller?.profile?.location}</p>
         <p>Email: {seller?.profile?.contactInfo?.email}</p>
         <p>Phone: {seller?.profile?.contactInfo?.phone}</p>
+        </div>
+        <div className='bg-white shadow-md rounded-lg p-4 mb-4'>
         <h3 className="text-lg font-bold mt-2">Social Media</h3>
         <p>Twitter: {seller?.profile?.contactInfo?.socialMedia?.twitter}</p>
         <p>Facebook: {seller?.profile?.contactInfo?.socialMedia?.facebook}</p>
@@ -263,18 +270,18 @@ const SellerProfile = () => {
         </ul>
       </div>
 
-      <div className="bg-white shadow-md rounded-lg p-4 mb-4">
-        <h2 className="text-xl font-bold mb-2">Sell Crafted Items</h2>
+      <div className="bg-white shadow-md rounded-lg p-2 mb-4">
+        <h2 className="text-xl font-bold mb-2 text-left p-4">Sell Crafted Items</h2>
         <form
           onSubmit={(e) => {
             e.preventDefault()
             handleAddCraftedItem()
           }}
-          className="flex flex-col space-y-4"
+          className="flex flex-col space-y-0 md:space-y-4 p-3 w-full md:p-5"
         >
-          <p className="text-2xl animate-pulse">All fields are required</p>
-          <div className="flex flex-wrap items-center justify-center bg-gray-200 p-5 space-x-2">
-            <label htmlFor="title" className="text-gray-700">
+          <p className="text-2xl animate-pulse text-left p-4">All fields are required</p>
+          <div className="md:block flex md:flex-wrap flex-col items-start md:items-center md:justify-center bg-gray-200 p-0 md:p-5 space-x-2">
+            <label htmlFor="title" className="text-gray-700 w-full ml-2">
               Title
               <input
                 required
@@ -287,10 +294,10 @@ const SellerProfile = () => {
                     title: e.target.value,
                   })
                 }
-                className="border-2 border-gray-400 p-2"
-              />
+                className="border rounded-[10px] border-gray-400 p-2 w-full md:w-full md:flex md:flex-col mt-2"
+              /><br></br>
             </label>
-            <label htmlFor="description" className="text-gray-700">
+            <label htmlFor="description" className="text-gray-700 w-full">
               Description
               <input
                 type="text"
@@ -304,10 +311,10 @@ const SellerProfile = () => {
                   })
                 }
                 name="description"
-                className="border-2 border-gray-400 p-2"
-              />
+                className="border rounded-[10px] border-gray-400 p-2 w-full md:w-full md:flex md:flex-col mt-2"
+              /><br></br>
             </label>
-            <label htmlFor="price" className="text-gray-700">
+            <label htmlFor="price" className="text-gray-700 w-full">
               Price in $
               <input
                 type="number"
@@ -320,10 +327,10 @@ const SellerProfile = () => {
                     price: parseFloat(e.target.value),
                   })
                 }
-                className="border-2 border-gray-400 p-2"
-              />
+                className="border rounded-[10px] border-gray-400 p-2 w-full md:w-full flex flex-col mt-2"
+              /><br></br>
             </label>
-            <label htmlFor="images" className="text-gray-700">
+            <label htmlFor="images" className="text-gray-700 w-full">
               Add Image(s)
               <input
                 type="file"
@@ -331,10 +338,10 @@ const SellerProfile = () => {
                 required
                 onChange={handleImageChange}
                 multiple
-                className="border-2 border-gray-400 p-2"
-              />
+                className="border rounded-[10px] border-gray-400 p-2 w-full md:w-full flex flex-col mt-2"
+              /><br></br>
             </label>
-            <label htmlFor="category" className="text-gray-700">
+            <label htmlFor="category" className="text-gray-700 w-full">
               Category
               <select
                 id="category"
@@ -346,7 +353,7 @@ const SellerProfile = () => {
                     category: e.target.value,
                   })
                 }
-                className="border-2 border-gray-400 p-2"
+                className="border rounded-[10px] border-gray-400 p-2 w-full md:w-full flex flex-col mt-2"
               >
                 <option value="default" disabled>
                   Choose Category
@@ -356,38 +363,41 @@ const SellerProfile = () => {
                     {category}
                   </option>
                 ))}
-              </select>
+              </select><br />
             </label>
           </div>
           <button
-            className="bg-black text-white p-3"
+            className="bg-success rounded text-black font-bold p-3 md:ml-0 ml-2"
             type="submit"
             disabled={addingCraftedItem}
           >
             {addingCraftedItem ? 'Adding...' : 'Add Crafted Item'}
           </button>
         </form>
-        <ul className="space-y-4 grid grid-cols-3">
+        <ul className="space-y-4 md:grid md:grid-cols-3 border-b mb-4">
           {loadingItems ? (
-            <li className="border-b border-gray-300 pb-4 animate-pulse">
+            <li className="border-gray-300 pb-4 animate-pulse">
               Loading Crafted Item if any...
             </li>
           ) : // Render crafted items or no items found based on the condition
           craftedItems && craftedItems.length > 0 ? (
             craftedItems.map((item, index) => (
-              <li key={index} className="border-b border-gray-300 pb-4">
-                <p>Title: {item.title}</p>
-                <p>Description: {item.description}</p>
+              <div className=''>
+              <li key={index} className="border-gray-300 pb-4 w-full">
+                <div className='bg-white shadow-lg shadow-black rounded-lg p-4 mt-6 mb-4 w-full'>
+                <p className="w-full">Title: {item.title}</p>
+                <p className='w-full'>Description: {item.description}</p>
                 <p>Price: ${item.price}</p>
                 <p>Category: {item.category}</p>
+                </div>
                 <div>
-                  <p>Images:</p>
+                  <p className='mt-10 p-2'>Images:</p>
                   <div className="relative">
-                    <div className="max-w-full overflow-hidden">
+                    <div className=" overflow-hidden p-4 shadow-lg shadow-black rounded-lg">
                       <Image
                         width={100}
                         height={100}
-                        className="w-[700px] h-[200px]"
+                        className="md:w-[700px] md:h-[200px]  h-[200px] w-full rounded-sm"
                         src={item.images[currentImageIndex[index] || 0]}
                         alt={`Crafted Item ${index + 1}`}
                       />
@@ -405,12 +415,14 @@ const SellerProfile = () => {
                   </div>
                 </div>
               </li>
+              </div>
             ))
           ) : (
             <li>No crafted items found</li>
           )}
         </ul>
       </div>
+      
       <div className="bg-white shadow-md rounded-lg p-4">
         <form
           onSubmit={(e) => {
@@ -458,7 +470,7 @@ const SellerProfile = () => {
               />
             </label>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-black bg-success font-bold py-2 px-4 rounded"
+              className="bg-blue-500 hover:bg-blue-700 text-black bg-success font-bold p-3 rounded w-full"
               type="submit"
               disabled={addingNewStory}
             >
@@ -485,7 +497,7 @@ const SellerProfile = () => {
                           width={100}
                           height={100}
                           key={imageIndex}
-                          className="w-12 h-12 object-cover rounded-full mr-2"
+                          className=" object-cover mr-2"
                           src={image}
                           alt={`Story Image ${imageIndex + 1}`}
                         />

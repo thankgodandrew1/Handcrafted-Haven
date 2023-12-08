@@ -154,11 +154,11 @@ export default function SellerSignUpForm() {
   }
 
   return (
-    <section className="m-[125px]">
-      <h1 className="text-2xl font-bold ">Seller Sign Up</h1>
+    <section className="md:m-[125px] m-auto p-4">
+      <h1 className="text-2xl font-bold text-center ">Seller Sign Up</h1>
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md p-4 bg-gray-100 shadow-md rounded-lg"
+        className="w-full max-w-md p-4 bg-gray-100 shadow-md rounded-lg mb-8"
       >
         <input
           type="text"

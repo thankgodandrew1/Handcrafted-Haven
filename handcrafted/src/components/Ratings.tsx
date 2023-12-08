@@ -4,8 +4,8 @@ import Alert from '@/assets/Alerts'
 
 export default function Ratings() {
   return (
-    <section className="py-12 px-6 bg-gradient-to-r from-muted to-background m-4 rounded-lg mt-0">
-      <div className="h-auto rounded-xl border-2 p-8 grid grid-cols-4 w-auto">
+    <section className="py-12 px-6 bg-gradient-to-r from-muted to-background m-4 rounded-lg mt-10 md:mt-0">
+      <div className="h-auto rounded-xl border-2 p-8 grid grid-cols-4 w-auto md:mt-10">
         <Image
           width={200}
           height={400}
@@ -28,7 +28,7 @@ export default function Ratings() {
       </div>
       <div
         id="recommend"
-        className="h-auto rounded-xl border-2 p-8 grid grid-cols-4 w-auto"
+        className="h-auto rounded-xl border-2 p-8 grid grid-cols-4 w-auto mt-16"
       >
         <Image
           width={200}
@@ -125,7 +125,7 @@ export default function Ratings() {
             <button
               type="submit"
               onClick={Alert}
-              className="bg-muted hover:bg-link transition duration-30 text-white font-bold py-2 px-4 rounded font-heading mt-28"
+              className="bg-muted hover:bg-link transition duration-30 text-white font-bold py-2 px-4 rounded font-heading mt-16"
             >
               Submit Review
             </button>
