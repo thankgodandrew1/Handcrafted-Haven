@@ -1,11 +1,11 @@
-import { useState } from "react"
+import { useState } from 'react'
 
-export default function App () {
-      //These are states
+export default function App() {
+  //These are states
   const [todos, setTodos] = useState(() => {
-    const status = ""
+    const status = ''
     if (status == null) return []
 
-    return 
+    return
   })
 }

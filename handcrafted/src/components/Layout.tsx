@@ -1,23 +1,23 @@
-import { ReactNode } from 'react';
-import Footer from "./Footer";
-import Header from "./Header";
-import Head from 'next/head';
+import { ReactNode } from 'react'
+import Footer from './Footer'
+import Header from './Header'
+import Head from 'next/head'
 
 interface LayoutProps {
-    children: ReactNode;
+  children: ReactNode
 }
 
-export const siteTitle = 'Home | HandCrafted Haven';
+export const siteTitle = 'Home | HandCrafted Haven'
 
 export default function Layout({ children }: LayoutProps) {
-    return (
-        <div className="main-layout">
-            <Head>
-                <title>{siteTitle}</title>
-            </Head>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-        </div>
-    )
+  return (
+    <div className="main-layout">
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </div>
+  )
 }
