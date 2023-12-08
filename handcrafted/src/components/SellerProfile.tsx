@@ -233,7 +233,7 @@ const SellerProfile = () => {
   }
 
   if (loading) {
-    return <div className="animate-pulse mt-8">Loading seller information...</div>
+    return <div className="animate-pulse mt-[100px]">Loading seller information...</div>
   }
 
   return (
@@ -378,7 +378,7 @@ const SellerProfile = () => {
         <ul className="space-y-4 md:grid md:grid-cols-3 border-b mb-4">
           {loadingItems ? (
             <li className="border-gray-300 pb-4 animate-pulse">
-              Loading Crafted Item if any...
+              Loading Crafted Items if any...
             </li>
           ) : // Render crafted items or no items found based on the condition
           craftedItems && craftedItems.length > 0 ? (
