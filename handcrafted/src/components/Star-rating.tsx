@@ -8,7 +8,7 @@ export function StarRating() {
   const [comment, setComment] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
-  const handleRatingClick = (selectedRating) => {
+  const handleRatingClick = (selectedRating: any) => {
     setRating(selectedRating);
   };
 
