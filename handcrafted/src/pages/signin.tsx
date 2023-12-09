@@ -108,12 +108,12 @@ const LoginPage = () => {
                     <p>Keep me signed in</p>
                   </label>
                 </div> */}
-                <a
+                <Link
                   href="/forgot-password"
                   className="form__info__forgot-password"
                 >
                   Forgot password?
-                </a>
+                </Link>
               </div>
 
               <div className="form__btns">

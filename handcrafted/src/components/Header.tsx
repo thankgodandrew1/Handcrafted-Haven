@@ -23,7 +23,7 @@ export default function Header() {
     <div className="header z-0 lg:z-10 lg:fixed w-full md:z-0">
       <nav className="md:flex p-5 md:justify-between w-auto">
         <div className="flex justify-between items-center cursor-pointer">
-          <a href="/" className="cursor-pointer">
+          <Link href="/" className="cursor-pointer">
             <span className="text-2xl md:text-3xl font-bold">
               <img
                 width={40}
@@ -34,7 +34,7 @@ export default function Header() {
               />
               Handcrafted Haven
             </span>
-          </a>
+          </Link>
           {isClick ? (
             <Image
               className="menu_class md:hidden"
@@ -59,9 +59,9 @@ export default function Header() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <li className="list-none text-2xl mx-4">
-                <a href="/" className="cursor-pointer">
+                <Link href="/" className="cursor-pointer">
                   Home
-                </a>
+                </Link>
               </li>
               {/* <li className="list-none text-2xl mx-4"><Link href="/seller-profile" className="cursor-pointer">Seller Profiles</Link></li> */}
               <li className="list-none text-2xl mx-4">
@@ -81,9 +81,9 @@ export default function Header() {
                 </Link>
               </li>
               <li className="list-none text-green-500 text-2xl mx-4">
-                <a href="#" className="cursor-pointer">
+                <Link href="/ReviewsAndRatings" className="cursor-pointer">
                   Reviews and Ratings
-                </a>
+                </Link>
               </li>
               <li className="list-none text-2xl mx-4">
                 <Link href="/register" passHref>
@@ -98,9 +98,9 @@ export default function Header() {
                 md:py-0 py-4 md:pl-0 pl-7 md:opacity-100  top-[-400px] transition-all ease-in duration-500"
         >
           <li className="mx-4">
-            <a href="/" className="cursor-pointer">
+            <Link href="/" className="cursor-pointer">
               Home
-            </a>
+            </Link>
           </li>
           {/* <li className="text-2xm mx-4"><Link href="/seller-profile" className="cursor-pointer">Seller Profiles</Link></li> */}
           <li className="mx-4">
@@ -120,9 +120,9 @@ export default function Header() {
             </Link>
           </li>
           <li className="text-green-500 mx-4">
-            <a href="/ReviewsAndRatings" className="cursor-pointer">
+            <Link href="/ReviewsAndRatings" className="cursor-pointer">
               Reviews and Ratings
-            </a>
+            </Link>
           </li>
           <li>
             <Link href="/register" passHref>
