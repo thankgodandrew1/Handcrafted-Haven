@@ -3,8 +3,8 @@ import { FaStar } from "react-icons/fa";
 import axios from 'axios'; 
 
 export function StarRating() {
-  const [rating, setRating] = useState(null);
-  const [hover, setHover] = useState(null);
+  const [rating, setRating] = useState<number | null>(null);
+  const [hover, setHover] = useState<number | null>(null);
   const [comment, setComment] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
@@ -53,7 +53,7 @@ export function StarRating() {
               <FaStar
                 size={20}
                 className="inline cursor-pointer"
-                color={currentState <= (hover || rating) ? "#71797E" : "#e4e5e9"}
+                color={currentState <= ((hover ?? rating) || 0) ? "#71797E" : "#e4e5e9"}
                 onMouseEnter={() => setHover(currentState)}
                 onMouseLeave={() => setHover(null)}
               />

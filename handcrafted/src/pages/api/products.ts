@@ -70,35 +70,7 @@ export default async function handler(
       res.status(500).json({ error: error.message })
     }
   }
-  //  else if (method === 'PUT') {
-  //   try {
-  //     const updatedProduct = req.body
-  //     const productsCollection = db.collection(
-  //       process.env.PRODUCTS_COLLECTION || 'products',
-  //     )
-  //     const result = await productsCollection.findOneAndUpdate(
-  //       { _id: new ObjectId(id as string) },
-  //       { $set: updatedProduct },
-  //       { returnOriginal: false },
-  //     )
-  //     res.status(200).json(result.value)
-  //   } catch (error: any) {
-  //     res.status(500).json({ error: error.message })
-  //   }
-  // } 
-  else if (method === 'DELETE') {
-    try {
-      const productsCollection = db.collection(
-        process.env.PRODUCTS_COLLECTION || 'products',
-      )
-      const result = await productsCollection.deleteOne({
-        _id: new ObjectId(id as string),
-      })
-      res.status(200).json({ success: result.deletedCount === 1 })
-    } catch (error: any) {
-      res.status(500).json({ error: error.message })
-    }
-  } else if (method === 'POST') {
+else if (method === 'POST') {
     handleFileUploads(req, res, async (err: any) => {
       if (err) {
         console.error('File upload error:', err)

@@ -47,33 +47,6 @@ export default async function handler(
       res.status(500).json({ error: error.message })
     }
   } 
-  // else if (method === 'PUT') {
-  //   try {
-  //     const updatedSeller = req.body
-  //     const sellersCollection = db.collection(
-  //       process.env.SELLERS_COLLECTION || 'sellers',
-  //     )
-  //     const result = await sellersCollection.findOneAndUpdate(
-  //       { _id: new ObjectId(id as string) },
-  //       { $set: updatedSeller },
-  //       { returnOriginal: false },
-  //     )
-  //     res.status(200).json(result.value)
-  //   } catch (error: any) {
-  //     res.status(500).json({ error: error.message })
-  //   }
-  // } else if (method === 'DELETE') {
-  //   try {
-  //     const sellersCollection = db.collection(
-  //       process.env.SELLERS_COLLECTION || 'sellers',
-  //     )
-  //     const result = await sellersCollection.deleteOne({
-  //       _id: new ObjectId(id as string),
-  //     })
-  //     res.status(200).json({ success: result.deletedCount === 1 })
-  //   } catch (error: any) {
-  //     res.status(500).json({ error: error.message })
-  //   }}
   else if (method === 'POST') {
     try {
       const seller = req.body
