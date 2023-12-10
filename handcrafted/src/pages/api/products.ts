@@ -3,6 +3,7 @@ import { MongoClient, Db, ObjectId } from 'mongodb'
 import Joi from 'joi'
 import { connectToDatabase } from '@/utils/db'
 import multer from 'multer'
+import { Request as ExpressRequest, Response as ExpressResponse } from 'express'
 // import { v4 as uuidv4 } from 'uuid';
 
 const categories = [
@@ -55,6 +56,9 @@ export default async function handler(
     query: { id },
   } = req
   const db = await connectToDatabase()
+  
+  const expressRes = res as unknown as ExpressResponse;
+  const expressReq = req as unknown as ExpressRequest;
 
   if (method === 'GET') {
     try {
@@ -70,8 +74,36 @@ export default async function handler(
       res.status(500).json({ error: error.message })
     }
   }
-else if (method === 'POST') {
-    handleFileUploads(req, res, async (err: any) => {
+  //  else if (method === 'PUT') {
+  //   try {
+  //     const updatedProduct = req.body
+  //     const productsCollection = db.collection(
+  //       process.env.PRODUCTS_COLLECTION || 'products',
+  //     )
+  //     const result = await productsCollection.findOneAndUpdate(
+  //       { _id: new ObjectId(id as string) },
+  //       { $set: updatedProduct },
+  //       { returnOriginal: false },
+  //     )
+  //     res.status(200).json(result.value)
+  //   } catch (error: any) {
+  //     res.status(500).json({ error: error.message })
+  //   }
+  // } 
+  else if (method === 'DELETE') {
+    try {
+      const productsCollection = db.collection(
+        process.env.PRODUCTS_COLLECTION || 'products',
+      )
+      const result = await productsCollection.deleteOne({
+        _id: new ObjectId(id as string),
+      })
+      res.status(200).json({ success: result.deletedCount === 1 })
+    } catch (error: any) {
+      res.status(500).json({ error: error.message })
+    }
+  } else if (method === 'POST') {
+    handleFileUploads(expressReq, expressRes, async (err: any) => {
       if (err) {
         console.error('File upload error:', err)
         return res.status(500).json({ error: 'File upload failed' })

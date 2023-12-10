@@ -3,6 +3,7 @@ import { MongoClient, Db, ObjectId } from 'mongodb'
 import Joi from 'joi'
 import { connectToDatabase } from '@/utils/db'
 import multer from 'multer'
+import { Request as ExpressRequest, Response as ExpressResponse } from 'express'
 
 const storySchema = Joi.object({
   sellerId: Joi.string().required(),
@@ -38,6 +39,10 @@ export default async function handler(
   } = req
   const db = await connectToDatabase()
 
+  const expressRes = res as unknown as ExpressResponse;
+  const expressReq = req as unknown as ExpressRequest;
+
+
   if (method === 'GET') {
     try {
       const sellerId = id as string
@@ -52,7 +57,7 @@ export default async function handler(
       res.status(500).json({ error: error.message })
     }
   } else if (method === 'POST') {
-    handleFileUploads(req, res, async (err: any) => {
+    handleFileUploads(expressReq, expressRes, async (err: any) => {
       if (err) {
         console.error('File upload error:', err)
         return res.status(500).json({ error: 'File upload failed' })
