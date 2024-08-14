@@ -25,8 +25,6 @@ Potential constraints may include the scope of features and development time. Sp
 
 ---
 
-Note: This README provides an overview/summary of the "Handcrafted Haven" project, outlining its purpose, requirements, and potential limitations.
-
 ## Authors
 
 ---
